@@ -34,4 +34,8 @@ public class ContactService {
             System.out.println(currentStore.get(key));
         }
     }
+
+    public Map<Long, Contact> findAll() {
+        return repository.findAll();
+    }
 }

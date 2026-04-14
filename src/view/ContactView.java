@@ -51,6 +51,16 @@ public class ContactView {
 
     // 전체 목록 : Map으로 받아서 values()로 출력
     private void readAll() {
+        // 맵을 읽어와서 화면 출력
+        Map<Long, Contact> store = contactService.findAll();
+        // 출력
+        // store 비어 있으면 없다고 출력한 후 종료
+        if (store.isEmpty()) {
+            System.out.println("저장된 자료가 없습니다");
+        }
+        for (Long key : store.keySet()) {
+            System.out.println(store.get(key));
+        }
     }
 
     // 추가 : 변경 없음

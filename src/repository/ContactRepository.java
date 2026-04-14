@@ -15,9 +15,15 @@ public class ContactRepository {
     public void save(Long id, Contact contact) {
         System.out.println("[ContactRepository.save()]");
         Map<Long, Contact> currentStore = state.getStore();
+
         currentStore.put(id, contact);
         System.out.println("저장 완료");
         state.increaseId();
         System.out.println("id 증가 완료");
+    }
+
+    public Map<Long, Contact> findAll() {
+        System.out.println("[ContactRepository.findAll()]");
+        return state.getStore();
     }
 }
