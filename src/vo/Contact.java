@@ -7,7 +7,7 @@ public class Contact {
     private String phone;
 
     // 생성자
-    public Contact(Long nextId, String name, int age, String phone) {
+    public Contact(Long id, String name, int age, String phone) {
         this.age = age;
         this.id = id;
         this.name = name;
