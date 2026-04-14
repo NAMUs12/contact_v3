@@ -1,19 +1,21 @@
 package vo;
 
 public class Contact {
-    private int id;  // getter 만
+    private int age;  // getter 만
+    private long id;
     private String name;
     private String phone;
 
     // 생성자
-    public Contact(int id, String name, String phone) {
+    public Contact(int age, long id, String name, String phone) {
+        this.age = age;
         this.id = id;
         this.name = name;
         this.phone = phone;
     }
 
-    // Getter와 Setter
-    public int getId() {
+    // Getter
+    public long getId() {
         return this.id;
     }
 
@@ -21,12 +23,21 @@ public class Contact {
         return this.name;
     }
 
+    public int getAge() {
+        return this.age;
+    }
+
     public String getPhone() {
         return this.phone;
     }
 
+    // Setter
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     public void setPhone(String phone) {
@@ -36,6 +47,6 @@ public class Contact {
     // toString 재정의
     @Override
     public String toString() {
-        return "[" + id + "] " + name + " / " + phone;
+        return "[" + id + "] " + name + " / " + age + " / " + phone;
     }
 }

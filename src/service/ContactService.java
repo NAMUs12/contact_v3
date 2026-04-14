@@ -1,6 +1,6 @@
 package service;
 
-import main.Main;
+import ContactMain;
 import repository.ContactRepository;
 import vo.Contact;
 
@@ -11,8 +11,8 @@ public class ContactService {
     private ContactRepository contactRepository = new ContactRepository();
 
     public void create(String name, String phone) {
-        Contact contact = new Contact(Main.nextId, name, phone);
-        Main.nextId++;
+        Contact contact = new Contact(ContactMain.nextId, name, phone);
+        ContactMain.nextId++;
         contactRepository.save(contact);
     }
 

@@ -8,8 +8,11 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class ContactView {
+    private final Scanner sc;
     private ContactService contactService = new ContactService();
-    private Scanner sc = new Scanner(System.in);
+    public ContactView(Scanner sc){
+        this.sc = sc;
+    }
 
     public void run() {
         while (true) {
