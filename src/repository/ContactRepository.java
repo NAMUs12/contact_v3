@@ -26,4 +26,26 @@ public class ContactRepository {
         System.out.println("[ContactRepository.findAll()]");
         return state.getStore();
     }
+
+    public boolean findById(Long deleteId) {
+        System.out.println("[ContactRepository.findById()]");
+        return state.getStore().containsKey(deleteId);
+    }
+
+    public void deleteById(Long deleteId) {
+        System.out.println("[ContactRepository.deteleById()]");
+        state.getStore().remove(deleteId);
+    }
+
+    public void updateById(Long updateId, String updatePhone) {
+        System.out.println("[ContactRepository.updateById()]");
+        // 1. 수정할 대상의 연락처를 찾아서
+        // 그 안에 있는 전화번호를 수정한다.
+        Contact contact = state.getStore().get(updateId);
+//        System.out.println(contact);
+        // 2. 해당 id의 다시 저장
+        contact.setPhone(updatePhone);
+        // 맵은 key가 같으면 수정이 된다.
+        state.getStore().put(updateId, contact);
+    }
 }

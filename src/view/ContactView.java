@@ -46,7 +46,18 @@ public class ContactView {
 
     // 검색 : Map으로 결과를 받아서 values()로 출력
     private void search() {
-        System.out.println("검색할 이름의 일부를 입력하세요");
+        System.out.println("[ContactView.search()]");
+        System.out.println("검색어(이름) : ");
+        String keyword = sc.next();
+        Map<Long, Contact> result = contactService.search(keyword);
+        // 검색결과 출력
+        if (result.isEmpty()) {
+            System.out.println("검색 결과가 없습니다.");
+        } else {
+            for (Long key : result.keySet()) {
+                System.out.println(result.get(key));
+            }
+        }
     }
 
     // 전체 목록 : Map으로 받아서 values()로 출력
@@ -81,9 +92,19 @@ public class ContactView {
 
     // 수정 : Map으로 받아서 비어있는지 확인 후 출력
     private void update() {
+        System.out.println("[ContactView.update()]");
+        System.out.println("수정할 아이디 : ");
+        Long updateId = sc.nextLong();
+        System.out.println("수정할 전화번호 : ");
+        String updatePhone = sc.next();
+        contactService.update(updateId, updatePhone);
     }
 
     // 삭제 : Map으로 받아서 비어있는지 확인 후 출력
     private void delete() {
+        System.out.println("삭제할 아이디 : ");
+        Long deleteId = sc.nextLong();
+        // 서비스로 id 보내기
+        contactService.delete(deleteId);
     }
 }
