@@ -81,6 +81,12 @@ public class ContactView {
 
     // 수정 : Map으로 받아서 비어있는지 확인 후 출력
     private void update() {
+        System.out.println("[ContactView.update()]");
+        System.out.println("수정할 아이디 : ");
+        Long updateId = sc.nextLong();
+        System.out.println("수정할 전화번호 : ");
+        String updatePhone = sc.next();
+        contactService.update(updateId, updatePhone);
     }
 
     // 삭제 : Map으로 받아서 비어있는지 확인 후 출력
