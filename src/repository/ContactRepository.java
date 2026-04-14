@@ -26,4 +26,14 @@ public class ContactRepository {
         System.out.println("[ContactRepository.findAll()]");
         return state.getStore();
     }
+
+    public boolean findById(Long deleteId) {
+        System.out.println("[ContactRepository.findById()]");
+        return state.getStore().containsKey(deleteId);
+    }
+
+    public void deleteById(Long deleteId) {
+        System.out.println("[ContactRepository.deteleById()]");
+        state.getStore().remove(deleteId);
+    }
 }

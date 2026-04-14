@@ -85,5 +85,9 @@ public class ContactView {
 
     // 삭제 : Map으로 받아서 비어있는지 확인 후 출력
     private void delete() {
+        System.out.println("삭제할 아이디 : ");
+        Long deleteId = sc.nextLong();
+        // 서비스로 id 보내기
+        contactService.delete(deleteId);
     }
 }
